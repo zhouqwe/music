@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset=" utf-8">
+		<meta name="author" content="http://www.softwhy.com/" />
+		<title>拖拽效果限制范围-蚂蚁部落</title>
+		<style type="text/css">
+			* {
+				margin: 0px;
+				padding: 0px;
+			}
+			
+			body {
+				padding: 50px;
+			}
+			
+			#box {
+				width: 20px;
+				height: 200px;
+				background: red;
+				overflow: hidden;
+				position: relative;
+				z-index: 1;
+			}
+			
+			#drag {
+				width: 20px;
+				height: 20px;
+				background: green;
+				position: absolute;
+				z-index: 3;
+			}
+			#drag2{
+				width: 20px;
+				height: 100%;
+				background: black;
+				position: absolute;
+				z-index: 2;
+				}
+		</style>
+		<script type="text/javascript">
+			window.onload = function() {
+				var obox = document.getElementById("box");
+				var odrag = document.getElementById("drag");
+				var isDrag = false;//此变量用于标识div是否可以被拖动。
+				var x, y;//用于存放鼠标指针距离要拖动div的左边缘和上边缘的距离
+				odrag.onmousedown = down;//为绿色div注册onmousedown事件处理函数
+				document.onmousemove = move;//为document对象注册onmousemove事件处理函数，之所以没有直接给odrag注册，是因为利用事件冒泡可以防止鼠标滑出div导致拖动失效现象
+				document.onmouseup = up;//为document对象注册onmouseup事件处理函数，同样利用了事件冒泡
+
+				function down(ev) {
+					var ev = window.event || ev;
+					x = ev.clientX - this.offsetLeft;
+					y = ev.clientY - this.offsetTop;
+					this.style.cursor = "move";
+					isDrag = true;
+					console.log(x,y);
+				}
+
+				function move(ev) {
+					if(isDrag) {
+						var ev = window.event || ev;
+//						odrag.style.left = (ev.clientX - x) + "px";
+						odrag.style.top = (ev.clientY - x) + "px";
+//						if(parseInt(odrag.style.left) < 0) {
+//							odrag.style.left = 0;
+//						}
+						if(parseInt(odrag.style.top) < 0) {
+							odrag.style.top = 0;
+						}
+//						if(parseInt(odrag.style.left) > obox.clientWidth - odrag.clientWidth) {
+//							odrag.style.left = (obox.clientWidth - odrag.clientWidth) + "px";
+//						}
+						if(parseInt(odrag.style.top) > obox.clientHeight - odrag.clientHeight) {
+							odrag.style.top = (obox.clientHeight - odrag.clientHeight) + "px";
+						}
+					}
+					document.getElementById("drag2").style.top = odrag.style.top;
+//					console.log(odrag.offsetTop);
+				}
+
+				function up() {
+					isDrag = false;
+					odrag.style.cursor = "pointer";
+				}
+			}
+		</script>
+	</head>
+
+	<body>
+		<div id="box">
+			<div id="drag"></div>
+			<div id="drag2"></div>
+		</div>
+	</body>
+
+</html>
