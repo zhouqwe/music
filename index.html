@@ -104,7 +104,7 @@
 						'name':'文爱',
 						'singer':'CG',
 						'album':'文爱',
-						'lrc':'mp3/文爱.lrc',
+						'lrc':'mp3/wenai.lrc',
 						'src':'mp3/文爱.mp3',
 						'img':'mp3/文爱f.jpg',
 						'imgbj':'mp3/文爱b.jpg'
@@ -166,14 +166,14 @@
 			document.onmousemove = move;
 			document.onmouseup = up;
 			
-			function down(){
+			function down(e){
 				var e = window.event || e;
 				x = e.clientX - this.offsetLeft;
 				y = e.clientY - this.offsetTop;
 				isDiv = true;
 				//console.log('down',x,y);
 			};
-			function move(){
+			function move(e){
 				//console.log('move');
 				var e = window.event || e;
 				//console.log('move',e,this);
@@ -278,6 +278,19 @@
 					alert("没有了")
 				}
 			})
+			
+//			$("body").click(function(){
+//				aa();
+//			})
+//			function aa(a){
+//				var a = window.event;
+//				console.log(a);
+//			}
+			
+			var url = "mp3/wenai.lrc";
+			var lyrics = url.split("\n");
+			console.log(lyrics);
 		</script>
+		<div id="xurl"></div>
 	</body>
 </html>
