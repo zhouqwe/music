@@ -152,6 +152,7 @@
 			var thiscp = document.getElementById("div_cp");
 				thiscp.style.animationPlayState="paused";
 			$(".div_btn0").on('click',function(){
+				clearInterval(set);
 				if($(this).hasClass("bf")){
 					$(this).removeClass("bf");
 					auDio.pause();//暂停
