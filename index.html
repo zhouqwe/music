@@ -191,9 +191,10 @@
 						$("#lrc ul li").eq(i).addClass("on").siblings().removeClass("on");
 						var topa = top - 22;
 						if (i>5) {
-							$("#lrc ul").animate({
-								"top":topa,
-							},200)
+							$("#lrc ul").css("top",topa);
+//							$("#lrc ul").animate({
+//								"top":topa,
+//							},200)
 						}
 					}
 				}
