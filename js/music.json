@@ -1,0 +1,38 @@
+[
+	{
+		"name":"Hoaprox-Ngau Hung",
+		"singer":"Hoaprox",
+		"album":"Hoaprox-Ngau Hung",
+		"lrc":"",
+		"src":"mp3/Hoaprox-Ngau Hung.mp3",
+		"img":"img/ceshi.png",
+		"imgbj":"img/banner.png"
+	},
+	{
+		"name":"音阙诗听 - 红昭愿",
+		"singer":"音阙诗听",
+		"album":"红昭愿",
+		"lrc":"mp3/音阙诗听_红昭愿.lrc",
+		"src":"mp3/音阙诗听_红昭愿.mp3",
+		"img":"mp3/音阙诗听_红昭愿f.jpg",
+		"imgbj":"mp3/音阙诗听_红昭愿b.jpg"
+	},
+	{
+		"name":"文爱",
+		"singer":"CG",
+		"album":"文爱",
+		"lrc":"mp3/wenai.lrc",
+		"src":"mp3/文爱.mp3",
+		"img":"mp3/文爱f.jpg",
+		"imgbj":"mp3/文爱b.jpg"
+	},
+	{
+		"name":"世界上的另一个我",
+		"singer":"郭采洁&阿肆",
+		"album":"世界上的另一个我",
+		"lrc":"mp3/郭采洁&阿肆-世界上的另一个我.lrc",
+		"src":"mp3/世界上的另一个我_阿肆,郭采洁.mp3",
+		"img":"mp3/世界上的另一个我_阿肆,郭采洁f.jpg",
+		"imgbj":"mp3/世界上的另一个我_阿肆,郭采洁b.jpg"
+	}
+]

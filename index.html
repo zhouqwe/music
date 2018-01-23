@@ -2,11 +2,13 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<title></title>
 		<!--transform-origin设置旋转中心点-->
 	</head>
 	<body>
 		<style type="text/css">
+			*{margin: 0;padding: 0;}
 			.boxone{width: 800px;height: 400px;background: url(img/banner.png) no-repeat center/cover;position: relative;overflow: hidden;}
 			.boxtow{width: 800px;height: 400px;background: rgba(0,0,0,0.6);-webkit-filter: blur(10px);position: absolute;}
 			.div_cz{width: 157px;height: 64px;position: absolute;top: -20px;left: 127px;background: url(img/cz.png) no-repeat center/contain;z-index: 1000;transform-origin: 0;transform: rotate(20deg);transition: all 0.5s ease;}
@@ -26,15 +28,20 @@
 			.div_btn2{background: url(img/xyq.png) no-repeat center/cover;left: 215px;}
 			.div_btn0.bf{background: url(img/zt.png) no-repeat center/cover;}
 			/*进度条*/
-			.div_jd{width: 400px;background: #b0afae;height: 10px;border-radius:10px ;position: absolute;bottom: 80px;right: 50px;overflow: hidden;}
-			.div_jdc{width: 0%;background: #d33638;border-radius:10px ;height: 10px;}
+			.div_jd{width: 400px;background: #b0afae;height: 10px;border-radius:10px ;position: absolute;bottom: 80px;right: 50px;}
+			.div_jdc{width: 0%;background: #d33638;border-radius:10px ;height: 10px;position: relative;}
+			.div_jdc::before{content: "";background: #d33638;position: absolute;top: -4px;right: -10px;width: 14px;height: 14px;border-radius: 9px;border: 2px solid #fff;}
 			/*音量*/
 			.yl_box{width: 30px;height: 30px;position: absolute;bottom: 70px;right: 10px;background: url(img/yl.png) no-repeat center/cover;}
 			#box{background: #fff;height: 100px;width: 20px;position: absolute;left: 5px;bottom: 30px;border-radius:10px;z-index: 100;border: 1px solid #000;overflow: hidden;display: none;}
 			#drag{width: 20px;height: 20px;border-radius:100% ;background: #D33638;position: absolute;z-index: 300;}
 			#drag2{width: 20px;height: 100%;background: #b0afae;position: absolute;z-index: 200;border-radius:20px ;}
 			.yl_box:hover #yl{display: block;}
-			
+			@media screen and (max-width: 900px){
+				.boxone{width: 100%;position: relative;top: 0;left: 0;right: 0;bottom: 0;}
+				
+			}
+			#lrc li.on{color: #d33638;}
 		</style>
 		<div class="boxone">
 			<!--<audio id="audio" controls="controls">-->
@@ -49,7 +56,19 @@
 				</audio>
 			</div>
 			<div class="boxtow"></div>
-			<p id="p" style="position: absolute;top: 100px;right: 20px;height: 30px;line-height: 30px;font-size: 14px;color: #fff;text-align: center;color: #fff;width: 300px;border: 1px solid #ddd;"></p>
+			<p id="p" style="position: absolute;top: 10px;right: 20px;height: 30px;line-height: 30px;font-size: 14px;color: #fff;text-align: center;color: #fff;width: 300px;border: 1px solid #ddd;"></p>
+			
+			<div class="timea" style="position: absolute;bottom: 20px;right: 50px;">
+				<div class="left"></div>
+				<div class="right"></div>
+			</div>
+			
+			<!--歌词-->
+			<div id="lrc" style="position: absolute;top: 50px;right: 72px;width: 250px;height: 242px;overflow: hidden;color: #fff;">
+				<ul style="position: absolute;top: 0;left: 0;">
+				</ul>
+			</div>
+			
 			<!--唱针-->
 			<div class="div_cz"></div>
 			<!--CD碟-->
@@ -80,7 +99,8 @@
 		
 		<script src="js/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
-			var music = {
+			var music;//音乐列表
+				music = {
 				'list':[
 					{
 						'name':'Hoaprox-Ngau Hung',
@@ -120,6 +140,9 @@
 					}
 				]
 			};
+			var lrc;//当前歌词文件
+			lrc = music.list[0].lrc;
+			var set;
 			//var ad = {"isSuccess":true,"love":false,"collect":false,"lrc":{"type":0,"data":"\u539f\u66f2\uff1a\u6a31\u82b1\u6a31\u82b1\u60f3\u89c1\u4f60<br \/>\u539f\u5531\uff1aRSP\uff0c\u9ad8\u91ce\u5065\u4e00<br \/>\u7ffb\u5531\/\u6df7\u97f3\uff1a\u6f06\u67da<br \/>\u7ed8\u5e08\uff1a\u534a\u573a\u5148\u751f<br \/>\u7b56\u5212\/\u586b\u8bcd\/\u7f8e\u5de5\/PV\uff1a\u5ead\u68e0<br \/><br \/>\u4f5b\u8bf4\u4eba\u4e16\u95f4\u516b\u82e6\u751f\u8001\u75c5\u6b7b\u8f6e\u56de\u6e21<br \/>\u6028\u618e\u4f1a\u4e94\u9634\u76db\u82e6<br \/>\u2014\u2014\u300c\u6c42\u4e0d\u5f97\u547d\u6570\uff0c\u7231\u522b\u79bb\u76f8\u758f\u3002\u300d<br \/>\u6cbf\u5fd8\u5ddd\u5165\u8ff7\u9014<br \/>\u4e09\u751f\u77f3\u96d5\u523b\u8fd9\u6267\u8ff7\u4e0d\u609f<br \/>\u53c8\u8bf4**\u6811\u4e0b\u770b\u82b1\u5f00\u53c8\u82b1\u843d\u987f\u609f<br \/>\u4f0f\u5fc3\u660e\u5fd7\u4e86\u89c9\u609f<br \/>\u2014\u2014\u300c\u59fb\u7f18\u4e24\u76f8\u8d1f\uff0c\u56e0\u679c\u4e09\u751f\u9014\u3002\u300d<br \/>\u9b42\u6d88\u9645\u542c\u96e8\u758f<br \/>\u7ec8\u4e86\u5374\u518d\u8e0f\u8f6e\u56de\u8def<br \/>\u5929\u5730\u865a\u65e0<br \/>\u518d\u65e0\u4e00\u4eba\u80fd\u4e0e\u4f60\u547d\u7406\u91cd\u590d<br \/>\u53cc\u5251\u80cc\u8d1f\u6b65\u5165\u96e8\u96fe<br \/>\u662f\u5f52\u9014<br \/><br \/>\u524d\u4e16\u8840\u6d77\u6df1\u4ec7\u6c34\u706b\u96be\u5bb9\u7684\u4f59\u6e29<br \/>\u90fd\u968f\u7740\u8f6e\u56de\u5165\u4e16\u6210\u8bdd\u672c<br \/>\u6216\u8038\u4eba\u542c\u95fb \u6216\u6ee1\u9762\u6cea\u75d5<br \/>\u6545\u4e8b\u603b\u6709\u4e9b\u550f\u5618\u9057\u6068<br \/>\u91cd\u751f\u540e\u4f3c\u66fe\u76f8\u8bc6\u7684\u6c14\u6c1b<br \/>\u547d\u5b64\u715e\u6cb9\u5c3d\u706f\u67af\u6620\u524d\u4e16\u8ff9\u75d5<br \/>\u4e0d\u7518\u6ee1\u5fc3\u8eab<br \/>\u7f13\u6c14\u606f\u8f7b\u58f0\u5410\u9732\u8a93\u8a00\u8bf4\u8981\u706d\u6ee1\u95e8<br \/><br \/>\u5e78\u800c\u867d\u5df2\u8fc7\u5025\u506c\u767e\u5e74 \u7ea2\u5c18\u4e4b\u8def\u6f2b\u6f2b \u6b64\u751f\u8fd8\u4e0d\u665a<br \/>\u5e78\u800c\u7ec8\u5f97\u6e05\u98ce\u660e\u6708\u601c \u773c\u5e95\u661f\u6cb3\u5fae\u95ea \u76f8\u987e\u65e0\u8a00\u6620\u6e05\u5bd2<br \/>\u5e78\u800c\u7a1a\u5b50\u867d\u84ec\u5934\u57a2\u9762 \u53ef\u9b42\u9b44\u521d\u5f97\u8fd4 \u5c1a\u672a\u88ab\u8840\u67d3<br \/>\u662f\u5996\u662f\u90aa\u96be\u8fa8<br \/>\u4ed6\u7b11\u5bb9\u7480\u74a8<br \/>\u6005\u7136\u95f4\u5fc3\u4e2d\u964c\u751f\u6000\u5ff5<br \/><br \/>\u8be5\u8bf4\u662f\u5e86\u5e78\u662f\u547d\u6570\u6216\u662f\u524d\u4e16\u7f6a\u8d4e<br \/>\u624d\u80fd\u6b64\u751f\u53bb\u8840\u6c61<br \/>\u2014\u2014\u300c\u6267\u5ff5\u9063\u82b1\u575e\uff0c\u6124\u6068\u6563\u4ead\u6e56\u3002\u300d<br \/>\u9690\u5c18\u4e16\u4f5c\u5e08\u5f92<br \/>\u5982\u5f71\u968f\u5f62\u4f3c\u8131\u80ce\u6362\u9aa8<br \/>\u8be5\u8bf4\u662f\u5bb3\u6015\u662f\u6b23\u559c\u6216\u662f\u96be\u653e\u62a5\u590d<br \/>\u624d\u4f1a\u523b\u610f\u88c5\u7cca\u6d82<br \/>\u2014\u2014\u300c\u5c0f\u5fc3\u85cf\u9519\u8bef\uff0c\u4ed4\u7ec6\u63a9\u758f\u5ffd\u3002\u300d<br \/>\u4e0d\u754f\u6b8b\u9b42\u75db\u82e6<br \/>\u53ea\u6015\u8fd9\u7f8e\u597d\u63ba\u53d8\u6570<br \/>\u5374\u672a\u731c\u51fa<br \/>\u4ed6\u4e5f\u523b\u610f\u5165\u620f\u53ea\u966a\u4f60\u6f14\u51fa<br \/>\u4e00\u573a\u843d\u5e55 \u518d\u63ed\u5e8f\u5e55<br \/>\u771f\u60c5\u4ed8<br \/><br \/>\u4e00\u5f00\u59cb\u9632\u5907\u758f\u79bb<br \/>\u672c\u80fd\u7740\u4fdd\u62a4\u81ea\u5df1<br \/>\u5c31\u50cf\u72fc\u7fa4\u9057\u5b64\u5374\u8bef\u95ef\u4eba\u4e16<br \/>\u65e0\u9760\u53c8\u65e0\u4f9d<br \/>\u89d2\u843d\u91cc\u72ec\u81ea\u8737\u7f29\u7740\u5c06\u4f24\u53e3\u8f7b\u8214\u8210<br \/>\u5230\u540e\u6765\u6212\u5907\u653e\u5f03<br \/>\u624d\u53d1\u73b0\u6e29\u6696\u4e0d\u606f<br \/>\u7ec8\u4e8e\u6df1\u4fe1\u4e0d\u7591\u8fd9\u6765\u4e4b\u4e0d\u6613<br \/>\u53ef\u601c\u53c8\u53ef\u60dc<br \/>\u56de\u5fc6\u8d77\u7ec8\u5176\u4e00\u751f\u672a\u5c1d\u8fc7\u7684\u751c\u871c<br \/><br \/>\u8fd8\u662f\u8d2a\u4e50\u7231\u73a9\u7684\u5e74\u5c11 \u5c81\u6708\u5b89\u7a33\u6b63\u9759\u597d \u5c71\u6da7\u591a\u5b09\u7b11<br \/>\u53ef\u662f\u75c5\u75db\u591c\u665a\u7ec8\u7f20\u7ed5 \u5c11\u5e74\u5fcd\u6563\u9b42\u4e4b\u75db\u7684\u5f7b\u591c\u58f0\u54ed\u568e<br \/>\u4e8e\u662f\u867d\u7136\u6ce8\u5b9a\u4f1a\u65e9\u592d \u4e5f\u5e73\u9759\u63a5\u53d7\u4e86\u7ed3\u5c40\u7684\u6765\u5230<br \/>\u71b9\u5fae\u5929\u5149\u7834\u6653<br \/>\u6668\u96fe\u8d77\u8f7b\u6f6e<br \/>\u6bcf\u4e00\u5206\u4e00\u79d2\u90fd\u662f\u714e\u71ac<br \/><br \/>\u4e0a\u4e00\u4e16\u5d29\u6e83\u5c16\u53eb\u53d1\u8a93\u5929\u4e0b\u4f5c\u966a\u846c<br \/>\u6700\u7ec8\u53ea\u62db\u7075\u75f4\u5984<br \/>\u2014\u2014\u300c\u5fc3\u5934\u8840\u6d41\u653e\uff0c\u4e00\u9b42\u4e09\u9b44\u6b87\u3002\u300d<br \/>\u6697\u591c\u65e0\u5149\u6f2b\u957f<br \/>\u5f77\u5fa8\u7edd\u671b\u5374\u671f\u5f85\u5fae\u5149<br \/>\u8fd9\u4e00\u4e16\u5e72\u51c0\u5929\u771f\u5584\u6076\u90fd\u968f\u4ed6\u9884\u60f3<br \/>\u5c11\u5e74\u65e0\u5fc3\u4f5c\u601d\u91cf<br \/>\u2014\u2014\u300c\u61f5\u61c2\u5c11\u5e74\u6837\uff0c\u6b8b\u5fcd\u5929\u771f\u85cf\u3002\u300d<br \/>\u70df\u6d88\u4e91\u6563\u8ff7\u60d8<br \/>\u7b11\u5bb9\u7eaf\u7cb9\u6cea\u4e24\u884c<br \/>\u547d\u6563\u865a\u5984<br \/><br \/>\u5341\u5e74\u76f8\u4f34\u4e24\u65b9\u5165\u620f\u4e00\u4eba\u65e0\u77e5<br \/>\u7ec8\u5c40\u5706\u6ee1\u6005\u7136\u82e5\u5931\u8f7b\u58f0\u53f9\u606f<br \/><br \/><br \/>\u4f5b\u8bf4\u4eba\u4e16\u95f4\u516b\u82e6\u751f\u8001\u75c5\u6b7b\u8f6e\u56de\u6e21<br \/>\u6028\u618e\u4f1a\u4e94\u9634\u76db\u82e6<br \/>\u2014\u2014\u300c\u6c42\u4e0d\u5f97\u547d\u6570\uff0c\u7231\u522b\u79bb\u76f8\u758f\u3002\u300d<br \/>\u6cbf\u5fd8\u5ddd\u5165\u8ff7\u9014<br \/>\u4e09\u751f\u77f3\u96d5\u523b\u8fd9\u6267\u8ff7\u4e0d\u609f<br \/>\u53c8\u8bf4**\u6811\u4e0b\u770b\u82b1\u5f00\u53c8\u82b1\u843d\u987f\u609f<br \/>\u4f0f\u5fc3\u660e\u5fd7\u4e86\u89c9\u609f<br \/>\u2014\u2014\u300c\u59fb\u7f18\u4e24\u76f8\u8d1f\uff0c\u56e0\u679c\u4e09\u751f\u9014\u3002\u300d<br \/>\u9b42\u6d88\u9645\u542c\u96e8\u758f<br \/>\u7ec8\u4e86\u5374\u518d\u8e0f\u8f6e\u56de\u8def<br \/><br \/>\u8be5\u8bf4\u662f\u5e86\u5e78\u662f\u547d\u6570\u6216\u662f\u524d\u4e16\u7f6a\u8d4e<br \/>\u624d\u80fd\u6b64\u751f\u53bb\u8840\u6c61<br \/>\u2014\u2014\u300c\u6267\u5ff5\u9063\u82b1\u575e\uff0c\u6124\u6068\u6563\u4ead\u6e56\u3002\u300d<br \/>\u9690\u5c18\u4e16\u4f5c\u5e08\u5f92<br \/>\u5982\u5f71\u968f\u5f62\u4f3c\u8131\u80ce\u6362\u9aa8<br \/>\u8be5\u8bf4\u662f\u5bb3\u6015\u662f\u6b23\u559c\u6216\u662f\u96be\u653e\u62a5\u590d<br \/>\u624d\u4f1a\u523b\u610f\u88c5\u7cca\u6d82<br \/>\u2014\u2014\u300c\u5c0f\u5fc3\u85cf\u9519\u8bef\uff0c\u4ed4\u7ec6\u63a9\u758f\u5ffd\u3002\u300d<br \/>\u4e0d\u754f\u6b8b\u9b42\u75db\u82e6<br \/>\u53ea\u6015\u8fd9\u7f8e\u597d\u63ba\u53d8\u6570<br \/><br \/>\u5929\u5730\u865a\u65e0<br \/>\u518d\u65e0\u4e00\u4eba\u80fd\u4e0e\u4f60\u547d\u7406\u91cd\u590d<br \/>\u53cc\u5251\u80cc\u8d1f\u6b65\u5165\u96e8\u96fe<br \/>\u662f\u5f52\u9014<br \/><br \/>\u82e5\u6709\u4e00\u65e5\uff0c\u7ea2\u5c18\u518d\u9047\u3002<br \/>\u64e6\u80a9\u8fc7\u3002<br \/><br \/>\u2014\u5b8c\u2014"}}
 			var auDio = document.getElementById("audio");
 			var audiosrc = document.getElementById("audiosrc");
@@ -136,16 +159,23 @@
 				}else{
 					$(this).addClass("bf");
 					auDio.play();//播放
+//					setInterval(
+//						'jd(auDio.currentTime,auDio.duration,auDio.ended);',1000
+//					);
+					set = setInterval(function(){
+						jd(auDio.currentTime,auDio.duration,auDio.ended);
+					},1000);
 					
-					setInterval(
-						'jd(auDio.currentTime,auDio.duration,auDio.ended);',1000
-					);
 					$(".div_cz").addClass("zx");
 					thiscp.style.animationPlayState="running";
 				}
 			});
 			
 			function jd(time,duration,ended){
+				var top = $("#lrc ul").position().top;
+				$(".timea .left").html(formatSeconds(time));
+				$(".timea .right").html(formatSeconds(duration));
+//				var top = $("#lrc ul").client().top;
 				var thisTime = time/duration*100;
 					ended = ended;
 				$(".div_jdc").css("width",thisTime+"%");
@@ -154,7 +184,47 @@
 					$(".div_cz").removeClass("zx");
 					thiscp.style.animationPlayState="paused";
 				}
-			}
+				var lileng = $("#lrc ul li").length;
+				for (var i = 0 ;i < lileng ;i++) {
+					
+					if (Math.round(time) == $("#lrc ul li").eq(i).data("id")) {
+						$("#lrc ul li").eq(i).addClass("on").siblings().removeClass("on");
+						var topa = top - 22;
+						if (i>5) {
+							$("#lrc ul").animate({
+								"top":topa,
+							},400)
+						}
+					}
+				}
+			};
+			function formatSeconds(value) {
+		        var secondTime = parseInt(value);// 秒
+		        var minuteTime = 0;// 分
+		        var hourTime = 0;// 小时
+		        if(secondTime > 60) {//如果秒数大于60，将秒数转换成整数
+		            //获取分钟，除以60取整数，得到整数分钟
+		            minuteTime = parseInt(secondTime / 60);
+		            //获取秒数，秒数取佘，得到整数秒数
+		            secondTime = parseInt(secondTime % 60);
+		            //如果分钟大于60，将分钟转换成小时
+		            if(minuteTime > 60) {
+		                //获取小时，获取分钟除以60，得到整数小时
+		                hourTime = parseInt(minuteTime / 60);
+		                //获取小时后取佘的分，获取分钟除以60取佘的分
+		                minuteTime = parseInt(minuteTime % 60);
+		            }
+		        }
+		        var result = "" + parseInt(secondTime) + "";
+		
+		        if(minuteTime > 0) {
+		            result = "" + parseInt(minuteTime) + ":" + result;
+		        }
+		        if(hourTime > 0) {
+		            result = "" + parseInt(hourTime) + ":" + result;
+		        }
+		        return result;
+		    }
 			
 			var div = document.getElementById("box");
 			var divc = document.getElementById("drag");
@@ -221,7 +291,6 @@
 				$(this).find("#box").toggle();
 			});
 			
-			console.log(music);
 			var gg = 0;//默认第一首歌
 			var length = music.list.length;
 			//下一曲
@@ -229,6 +298,15 @@
 			$(".div_btn2").on("click",function(){
 					gg++;
 				if (gg < length) {
+					clearInterval(set);
+					$("#lrc ul li").remove();
+					$("#lrc ul").css("top","0px");
+					lrc = music.list[gg].lrc;
+					if(lrc){
+						ajax(lrc);
+					}else{
+						$("#lrc ul").html("<li>未找到歌词</li>")
+					}
 					$("#p").html(music.list[gg].name);
 					$(".boxone").css("background","url(" + music.list[gg].imgbj + ") no-repeat center/cover");
 					$(".divtx img").attr("src",music.list[gg].img);
@@ -245,7 +323,9 @@
 					audiosrc.src = music.list[gg].src;
 					auDio.load();
 					auDio.play();
-					console.log("div_btn2",gg,music.list[gg].imgbj,music.list[gg].img);
+					set = setInterval(function(){
+						jd(auDio.currentTime,auDio.duration,auDio.ended);
+					},1000);
 				}else{
 					gg = length-1;
 					alert("没有了")
@@ -256,6 +336,15 @@
 //				console.log(gg);
 					gg--;
 				if (gg >= 0) {
+					clearInterval(set);
+					$("#lrc ul li").remove();
+					$("#lrc ul").css("top","0px");
+					lrc = music.list[gg].lrc;
+					if(lrc){
+						ajax(lrc);
+					}else{
+						$("#lrc ul").html("<li>未找到歌词</li>")
+					}
 					$("#p").html(music.list[gg].name);
 					$(".boxone").css("background","url(" + music.list[gg].imgbj + ") no-repeat center/cover");
 					$(".divtx img").attr("src",music.list[gg].img);
@@ -272,6 +361,9 @@
 					audiosrc.src = music.list[gg].src;
 					auDio.load();
 					auDio.play();
+					set = setInterval(function(){
+						jd(auDio.currentTime,auDio.duration,auDio.ended);
+					},1000);
 					console.log("div_btn1",gg);
 				}else{
 					gg = 0;
@@ -279,18 +371,56 @@
 				}
 			})
 			
-//			$("body").click(function(){
-//				aa();
-//			})
-//			function aa(a){
-//				var a = window.event;
-//				console.log(a);
-//			}
+			function ajax(lrc){
+				var str = '';
+				$.ajax({
+					type:"get",
+					url:lrc,
+					async:true,
+					success:function(data){
+						var lyric = parseLyric(data);
+//						console.log(lyric,data);
+						Object.keys(lyric).forEach(function(key){
+//					    		console.log(key,lyric[key]);
+							str += '<li data-id="'+ key +'">'+ lyric[key] +'</li>';
+						});
+						$("#lrc ul").append(str);
+					}
+				});
+			}
+			function parseLyric(lrc) {
+			    var lyrics = lrc.split("\n");
+			    var lrcObj = {};
+			    for(var i=0;i<lyrics.length;i++){
+			        var lyric = decodeURIComponent(lyrics[i]);
+			        var timeReg = /\[\d*:\d*((\.|\:)\d*)*\]/g;
+			        var timeRegExpArr = lyric.match(timeReg);
+			        if(!timeRegExpArr)continue;
+			        var clause = lyric.replace(timeReg,'');
+			        for(var k = 0,h = timeRegExpArr.length;k < h;k++) {
+			            var t = timeRegExpArr[k];
+			            var min = Number(String(t.match(/\[\d*/i)).slice(1)),
+			                sec = Number(String(t.match(/\:\d*/i)).slice(1));
+			            var time = min * 60 + sec;
+			            lrcObj[time] = clause;
+			        }
+			    }
+			    return lrcObj;
+			}
 			
-			var url = "mp3/wenai.lrc";
-			var lyrics = url.split("\n");
-			console.log(lyrics);
+			
 		</script>
-		<div id="xurl"></div>
+		<div id="music_list"></div>
+		<script type="text/html" id="music_list_item">
+		    <li>
+		        <div class="left">
+		            <div class="songName">{{name}}</div>
+		            <div class="singer">{{singer}}</div>
+		        </div>
+		        <div class="right">
+		            <span class="stateIcon"></span>
+		        </div>
+		    </li>
+		</script>
 	</body>
 </html>
