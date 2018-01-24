@@ -432,21 +432,27 @@
 			        }
 			    }
 			    return lrcObj;
-			}
+			};
 			
-			
-		</script>
-		<div id="music_list"></div>
-		<script type="text/html" id="music_list_item">
-		    <li>
-		        <div class="left">
-		            <div class="songName">{{name}}</div>
-		            <div class="singer">{{singer}}</div>
-		        </div>
-		        <div class="right">
-		            <span class="stateIcon"></span>
-		        </div>
-		    </li>
+			$.ajax({
+				type:"get",
+				url:"http://box.zhangmen.baidu.com/x?op=12&count=1&title=不得不爱",
+				async:true,
+				cache:false, 
+				dataType:"jsonp",
+				jsonp:"callback",
+				jsonpCallback:"getMessage",
+				success:function(data){  
+                		alert("success:"+data);
+                		console.log("success:",data);
+            		},  
+	            error:function(){  
+	                console.log("发生异常");  
+	            }
+			});
+			function getMessage(jsonp){  
+                console.log("message:"+jsonp);  
+            }
 		</script>
 	</body>
 </html>

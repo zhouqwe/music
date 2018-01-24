@@ -68,7 +68,29 @@
 			        }
 			        return result;
 			    }
-			console.log(formatSeconds(112.43113))
+			console.log(formatSeconds(112.43113));
+			
+			
+			$.ajax({
+				type:"get",
+//				url:"http://music.163.com/api/song/detail/?id=%E4%B8%8D%E5%BE%97%E4%B8%8D%E7%88%B1&ids=%5B%E4%B8%8D%E5%BE%97%E4%B8%8D%E7%88%B1%5D&csrf_token=",
+				url:"http://box.zhangmen.baidu.com/x?op=12&count=1&title=不得不爱",
+				async:true,
+				cache:false, 
+				dataType:"jsonp",
+				jsonp:"callback",
+				jsonpCallback:"getMessage",
+				success:function(data){  
+                		alert("success:"+data);
+                		console.log("success:",data);
+            		},  
+	            error:function(){  
+	                console.log("发生异常");  
+	            }
+			});
+			function getMessage(jsonp){  
+                console.log("message:"+jsonp);  
+            }
 		</script>
 	</body>
 </html>
