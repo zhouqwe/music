@@ -1,9 +1,9 @@
-[
+{"list":[
 	{
 		"name":"Hoaprox-Ngau Hung",
 		"singer":"Hoaprox",
 		"album":"Hoaprox-Ngau Hung",
-		"lrc":"",
+		"lrc":"_",
 		"src":"mp3/Hoaprox-Ngau Hung.mp3",
 		"img":"img/ceshi.png",
 		"imgbj":"img/banner.png"
@@ -35,4 +35,5 @@
 		"img":"mp3/世界上的另一个我_阿肆,郭采洁f.jpg",
 		"imgbj":"mp3/世界上的另一个我_阿肆,郭采洁b.jpg"
 	}
-]
+]}
+
