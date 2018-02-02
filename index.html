@@ -343,7 +343,7 @@
 				for (var i = 0 ;i < lileng ;i++) {
 					if (Math.round(time) == $("#lrc ul li").eq(i).data("id")) {
 						$("#lrc ul li").eq(i).addClass("on").siblings().removeClass("on");
-//						var topa = top - hei;
+						var topa = top - hei;
 						if (i>5) {
 							
 							$("#lrc ul").css("transform","translateY("+ topa +"px)");
