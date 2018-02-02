@@ -1,0 +1,36 @@
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td {margin: 0;padding: 0}
+html {color: #000;overflow-y: scoll;overflow: -moz-scrollbars-vertical}
+body, button, input, select, textarea {font-size: 12px;font-family: Helvetica,Hiragino Sans GB,Tahoma,Geneva,\5FAE\8F6F\96C5\9ED1,simhei,Arial, sans-serif}
+h1, h2, h3, h4, h5, h6, button, input, select, textarea {font-size: 100%}
+input{vertical-align: middle;outline: none;}
+em {font-style: normal}
+small {font-size: 12px}
+ul, ol{list-style: none}
+a {text-decoration: none}
+a:hover {text-decoration: none}
+legend {color: #000}
+fieldset, img {border: 0}
+table {border-collapse: collapse;border-spacing: 0}
+img {-ms-interpolation-mode: bicubic}
+textarea {resize: vertical}
+label, button, a {cursor: pointer}
+input[type=submit]{-webkit-appearance:none}
+input{ border: none;}
+i,em,b,strong{font-style: normal;}
+/*Public Style*/
+.left {float: left}
+.right {float: right}
+.overflow {overflow: hidden}
+.hide {display: none}
+.block {display: block}
+.inline {display: inline}
+.error {color: #F00;font-size: 12px}
+.clearfix:after {content: '\20';display: block;height: 0;clear: both}
+.clearfix {zoom: 1}
+.clear {clear: both;height: 0;line-height: 0;font-size: 0;visibility: hidden;overflow: hidden}
+.wordwrap {word-break: break-all;word-wrap: break-word}
+pre.wordwrap {white-space: pre-wrap}
+.colbox_2 li{ width: 50%; float: left;}
+.colbox_3 li{ width: 33.3333%; float: left;}
+.colbox_4 li{ width: 25%; float: left;}
+.colbox_5 li{ width: 20%; float: left;}
