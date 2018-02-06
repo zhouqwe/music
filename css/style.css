@@ -29,7 +29,7 @@ body{background: url(../img/bannera.jpg) no-repeat center/cover;box-sizing: bord
 
 
 .swiper-slide_lrc {height: 70%;overflow: hidden;margin: 10% 0 0 0;}
-.swiper-slide_lrc ul{position: absolute; top: 0px; left: 0px; width: 100%;text-align: center;font-size: 14px;color: #EAE8E9;
+.swiper-slide_lrc ul{position: absolute; top: 0px; left: 0px; width: 100%;text-align: center;font-size: 14px;color: #EAE8E9;font-size: 14px;
 	-webkit-transition: -webkit-transform .3s ease-out;
     transition: -webkit-transform .3s ease-out;
     transition: transform .3s ease-out;
