@@ -15,20 +15,16 @@
 			    <div class="swiper-wrapper">
 					<div class="swiper-slide swiper-slide_list">
 						<ul>
-							<li>音阙诗听 - 红昭愿<i></i></li>
-							<li>音阙诗听 - 红昭愿<i></i></li>
-							<li>音阙诗听 - 红昭愿<i></i></li>
-							<li>音阙诗听 - 红昭愿<i></i></li>
-							<li>音阙诗听 - 红昭愿<i></i></li>
-							<li>音阙诗听 - 红昭愿<i></i></li>
-							<li>音阙诗听 - 红昭愿<i></i></li>
-							<li>音阙诗听 - 红昭愿<i></i></li>
-							<li>音阙诗听 - 红昭愿<i></i></li>
-							<li>音阙诗听 - 红昭愿<i></i></li>
-							<li>音阙诗听 - 红昭愿<i></i></li>
-							<li>音阙诗听 - 红昭愿<i></i></li>
-							<li>音阙诗听 - 红昭愿<i></i></li>
-							<li>音阙诗听 - 红昭愿<i></i></li>
+							<li data-id="1">音阙诗听 - 红昭愿<i></i></li>
+							<li data-id="2">音阙诗听 - 红昭愿<i></i></li>
+							<li data-id="3">音阙诗听 - 红昭愿<i></i></li>
+							<li data-id="4">音阙诗听 - 红昭愿<i></i></li>
+							<li data-id="5">音阙诗听 - 红昭愿<i></i></li>
+							<li data-id="6">音阙诗听 - 红昭愿<i></i></li>
+							<li data-id="7">音阙诗听 - 红昭愿<i></i></li>
+							<li data-id="8">音阙诗听 - 红昭愿<i></i></li>
+							<li data-id="9">音阙诗听 - 红昭愿<i></i></li>
+							<li data-id="10">音阙诗听 - 红昭愿<i></i></li>
 						</ul>
 					</div>
 					<div class="swiper-slide swiper-slide_detail">Slide 2</div>
@@ -40,5 +36,12 @@
 		<script src="js/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$("li").click(function(){
+				var thisEq = $(this).data("id");
+//				console.log(thisEq);
+				alert(thisEq);
+			})
+		</script>
 	</body>
 </html>
