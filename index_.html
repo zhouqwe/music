@@ -9,7 +9,7 @@
 		<link rel="stylesheet" type="text/css" href="css/style.css"/>
 	</head>
 	<body>
-		
+		<div class="box"></div>
 		<div class="audio">
 			<div class="swiper-container">
 			    <div class="swiper-wrapper">
@@ -50,7 +50,8 @@
 			$("li").click(function(){
 				var thisEq = $(this).data("id");
 				//console.log(thisEq);
-				alert(thisEq);
+				//alert(thisEq);
+				$(this).addClass("on").siblings().removeClass("on");
 			})
 		</script>
 	</body>

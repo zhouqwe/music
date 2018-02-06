@@ -1,5 +1,12 @@
-html, body {position: relative;height: 100%;}
+html, body {position: relative;height: 100%;color: #fff;}
 .audio{height: 80%;}
 .swiper-container {width: 100%;height: 100%;}
 ul{height: 95%;overflow: scroll;}
-ul li{height:40px!important;line-height: 40px;margin: 0!important;font-size: 14px;}
+ul li{height:36px!important;line-height: 36px;margin: 0!important;font-size: 14px;border-radius: 4px;box-sizing: border-box;padding: 0 10px;}
+ul li.on{background: url(../img/li.png) no-repeat center/cover;}
+ul li.on i{display: block;float: right;background: url(../img/loading1.gif) center/cover;width: 30px;height: 30px;position: relative;top: 3px;}
+
+body{background: url(../img/bannera.jpg) no-repeat center/cover;box-sizing: border-box;padding: 10px;}
+.swiper-pagination-bullet{background: #fff;}
+.swiper-pagination-bullet-active{background: #d33638;}
+.box{background: rgba(0,0,0,0.6);-webkit-filter: blur(10px);height: 100%;width: 100%;position: absolute;top: 0;bottom: 0;left: 0;right: 0;}
