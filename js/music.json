@@ -15,7 +15,7 @@
 		"lrc":"mp3/音阙诗听_红昭愿.lrc",
 		"src":"mp3/音阙诗听_红昭愿.mp3",
 		"img":"mp3/音阙诗听_红昭愿f.jpg",
-		"imgbj":"mp3/音阙诗听_红昭愿b.jpg"
+		"imgbj":"iconimg/音阙诗听_红昭愿b.jpg"
 	},
 	{
 		"name":"文爱",
@@ -41,8 +41,8 @@
 		"album":"前任3",
 		"lrc":"mp3/袁娅维-说散就散.lrc",
 		"src":"mp3/袁娅维-说散就散.mp3",
-		"img":"mp3/世界上的另一个我_阿肆,郭采洁f.jpg",
-		"imgbj":"mp3/世界上的另一个我_阿肆,郭采洁b.jpg"
+		"img":"iconimg/袁娅维-说散就散f.jpg",
+		"imgbj":"iconimg/袁娅维-说散就散b.jpg"
 	},
 	{
 		"name":"远走高飞---金志文",
@@ -50,8 +50,8 @@
 		"album":"远走高飞",
 		"lrc":"mp3/远走高飞---金志文.lrc",
 		"src":"mp3/远走高飞---金志文.mp3",
-		"img":"mp3/世界上的另一个我_阿肆,郭采洁f.jpg",
-		"imgbj":"mp3/世界上的另一个我_阿肆,郭采洁b.jpg"
+		"img":"iconimg/远走高飞---金志文f.jpg",
+		"imgbj":"iconimg/远走高飞---金志文b.jpg"
 	},
 	{
 		"name":"空空如也（Cover 任然） - 封茗囧菌",
@@ -59,8 +59,8 @@
 		"album":"空空如也（Cover 任然）-封茗囧菌",
 		"lrc":"mp3/空空如也-封茗囧菌.lrc",
 		"src":"mp3/空空如也-封茗囧菌.mp3",
-		"img":"mp3/空空如也-封茗囧菌.png",
-		"imgbj":"mp3/世界上的另一个我_阿肆,郭采洁b.jpg"
+		"img":"iconimg/空空如也-封茗囧菌.jpg",
+		"imgbj":"iconimg/空空如也-封茗囧菌b.jpg"
 	}
 ]}
 
