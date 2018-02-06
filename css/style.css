@@ -15,8 +15,8 @@ body{background: url(../img/bannera.jpg) no-repeat center/cover;box-sizing: bord
 .swiper-slide_list ul li.on i{display: block;float: right;background: url(../img/loading1.gif) center/cover;width: 30px;height: 30px;position: relative;top: 3px;}
 
 .swiper-slide_detail {}
-.swiper-slide_detail .disc{width: 13.75rem;height: 13.75rem;;margin: 60px auto 0;border-radius:100% ;overflow: hidden;background: url(../img/cp2.png) no-repeat center/cover;position: relative;}
-.swiper-slide_detail .disc img{display: block;width: 6.875rem;height: 6.875rem;position: absolute;top: 50%;left: 50%;border-radius: 100%;margin: -25% 0 0 -25%;opacity: .8;}
+.swiper-slide_detail .disc{width: 15rem;height: 15rem;;margin: 60px auto 0;border-radius:100% ;overflow: hidden;background: url(../img/cp2.png) no-repeat center/cover;position: relative;}
+.swiper-slide_detail .disc img{display: block;width: 7.5rem;height: 7.5rem;position: absolute;top: 50%;left: 50%;border-radius: 100%;margin: -25% 0 0 -25%;opacity: .8;}
 .swiper-slide_detail .detail{margin-top: 20px;}
 .swiper-slide_detail .detail p{text-align: center;font-size: 14px;color: #EAE8E9;height: 30px;line-height: 30px;}
 
