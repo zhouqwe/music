@@ -33,6 +33,22 @@ var thiscp = document.getElementById("disc");
 					str += '<li data-id="'+ index +'">' + music.list[index].name + '<i></i></li>'
 				}
 				$(".swiper-slide_list ul").html(str);
+				
+				$(".swiper-slide_detail .detail p").eq(0).html(music.list[0].name);
+				$(".swiper-slide_detail .detail p").eq(1).html(music.list[0].singer);
+				$(".swiper-slide_detail .detail p").eq(2).html(music.list[0].album);
+				$(".t").attr("src",music.list[0].img);
+				$("body").css("background","url(" + music.list[0].imgbj + ") no-repeat center/cover")
+				audiosrc.src = music.list[0].src;
+				auDio.load();
+				lrc = music.list[0].lrc;
+				if(lrc){
+					ajax(lrc);
+				}else{
+					$(".swiper-slide_lrc ul").html("<li>未找到歌词</li>")
+				};
+				sete();
+				
 			}
 		});
 		//列表选择音乐
@@ -62,7 +78,33 @@ var thiscp = document.getElementById("disc");
 			sete();//歌词相关
 			
 		})
-			
+		
+		//播放按钮
+		$(".btn_bf").on("click",function(){
+			if(!$(this).hasClass("on")){
+				$(this).addClass("on");
+				if (auDio.ended) {
+					clearInterval(set);
+					auDio.load();
+					$(".swiper-slide_lrc ul li").remove();
+					$(".swiper-slide_lrc ul").css("transform","translateY(0px)");
+					if(lrc){
+						ajax(lrc);
+					}else{
+						$(".swiper-slide_lrc ul").html("<li>未找到歌词</li>")
+					};
+					sete();
+				}else{
+					auDio.play();//播放
+				};
+				//$(".swiper-slide_list ul li").eq();
+			}else{
+				$(this).removeClass("on");
+				auDio.pause();//暂停
+				thiscp.style.animationPlayState="paused";
+				$(".stylus").removeClass("on");
+			}
+		})
 		
 		
 	});
