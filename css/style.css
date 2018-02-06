@@ -28,7 +28,7 @@ body{background: url(../img/bannera.jpg) no-repeat center/cover;box-sizing: bord
 .swiper-slide_lrc ul{position: absolute; top: 0px; left: 0px; width: 100%;text-align: center;font-size: 14px;color: #EAE8E9;height: 80%;overflow: hidden;margin: 10% 0 0 0;}
 .swiper-slide_lrc ul li.on{color: #d33638;}
 
-.audio_bot{height: 20%;}
-.jd{width: 95%;background: #b0afae;height: 4px;border-radius:4px ;margin: 20px auto 0;}
+.audio_bot{height: 20%;box-sizing: border-box;padding: 20px 0 0 0;}
+.jd{width: 95%;background: #b0afae;height: 4px;border-radius:4px ;margin: 0 auto;position: relative;}
 .jdc{width: 0%;background: #d33638;border-radius:4px ;height: 4px;position: relative;}
 .jdc::before{content: "";background: #d33638;position: absolute;top: -6px;right: -10px;width: 4px;height: 4px;border-radius: 100%;border: 6px solid #fff;}
