@@ -13,7 +13,7 @@ body{background: url(../img/bannera.jpg) no-repeat center/cover;box-sizing: bord
 .swiper-slide_list ul li.on i{display: block;float: right;background: url(../img/loading1.gif) center/cover;width: 30px;height: 30px;position: relative;top: 3px;}
 
 .swiper-slide_detail {}
-.swiper-slide_detail .stylus{background: url(../icon/cz1.png) no-repeat center/cover;width: 20%;position: absolute;left: 50%;top: -12px;margin: 0px 0 0 -3%;transform-origin: 15% 9.5%;transform: rotate(-20deg);transition: all 0.5s ease;z-index: 1;}
+.swiper-slide_detail .stylus{background: url(../icon/cz1.png) no-repeat center/cover;width: 20%;position: absolute;left: 50%;top: -14px;margin: 0px 0 0 -3%;transform-origin: 18.8% 11.90%;transform: rotate(-20deg);transition: all 0.5s ease;z-index: 1;}
 .swiper-slide_detail .stylus img{display: block;width: 100%;}
 .swiper-slide_detail .stylus.on{transform: rotate(10deg);}
 .swiper-slide_detail .disc{/*width: 15rem;height: 15rem*/;width: 70%;margin: 60px auto 0;border-radius:100% ;overflow: hidden;background: url(../icon/cp2.png) no-repeat center/cover;position: relative;-webkit-animation:xz 40s infinite linear ;}
