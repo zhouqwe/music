@@ -10,12 +10,12 @@
 	</head>
 	<body>
 		<div class="box"></div>
-		<div class="audio">
+		<div class="audio_top">
 			<div class="swiper-container">
 			    <div class="swiper-wrapper">
 					<div class="swiper-slide swiper-slide_list">
 						<ul>
-							<li data-id="1">音阙诗听 - 红昭愿1<i></i></li>
+							<!--<li data-id="1">音阙诗听 - 红昭愿1<i></i></li>
 							<li data-id="2">音阙诗听 - 红昭愿<i></i></li>
 							<li data-id="3">音阙诗听 - 红昭愿<i></i></li>
 							<li data-id="4">音阙诗听 - 红昭愿<i></i></li>
@@ -34,12 +34,13 @@
 							<li data-id="17">音阙诗听 - 红昭愿<i></i></li>
 							<li data-id="18">音阙诗听 - 红昭愿<i></i></li>
 							<li data-id="19">音阙诗听 - 红昭愿<i></i></li>
-							<li data-id="20">音阙诗听 - 红昭愿<i></i></li>
+							<li data-id="20">音阙诗听 - 红昭愿<i></i></li>-->
 						</ul>
 					</div>
 					<div class="swiper-slide swiper-slide_detail">
+						<div class="stylus"><img src="icon/50_79.png"/></div>
 						<div class="disc">
-							<img src="img/10_10.png" class="s"/>
+							<img src="icon/10_10.png" class="s"/>
 							<img src="img/ceshi.png" class="t"/>
 						</div>
 						<div class="detail">
@@ -103,16 +104,18 @@
 				<div class="swiper-pagination"></div>
 			</div>
 		</div>
+		<div class="audio_bot">
+			<audio src="">
+				<source id="audiosrc" src="mp3/Hoaprox-Ngau Hung.mp3" type="audio/mpeg">
+			</audio>
+			<div class="jd">
+				<div class="jdc"></div>
+			</div>
+			
+		</div>
+		
 		<script src="js/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
-		<script type="text/javascript">
-			$("li").click(function(){
-				var thisEq = $(this).data("id");
-				//console.log(thisEq);
-				//alert(thisEq);
-				$(this).addClass("on").siblings().removeClass("on");
-			})
-		</script>
 	</body>
 </html>
