@@ -45,5 +45,9 @@ body{background: url(../img/bannera.jpg) no-repeat center/cover;box-sizing: bord
 .jdc::before{content: "";background: #d33638;position: absolute;top: -6px;right: -10px;width: 4px;height: 4px;border-radius: 100%;border: 6px solid #fff;}
 .audio_bot {}
 .audio_bot .btn{display: flex;position: relative;}
-.audio_bot .btn a{display: block;flex: 1;}
-.audio_bot .btn a img{display: block;width: 45%;margin: 0 auto;}
+.audio_bot .btn img{display: block;width: 45%;margin: 0 auto;}
+.audio_bot .btn div{display: block;flex: 1;}
+.audio_bot .btn .btn_up{background: url(../icon/up.png) no-repeat center/45%;}
+.audio_bot .btn .btn_bf{background: url(../icon/bf.png) no-repeat center/45%;}
+.audio_bot .btn .btn_bf.on{background: url(../icon/zt.png) no-repeat center/45%;}
+.audio_bot .btn .btn_down{background: url(../icon/down.png) no-repeat center/45%;}

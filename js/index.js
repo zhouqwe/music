@@ -51,7 +51,7 @@ var thiscp = document.getElementById("disc");
 			if(thiscp.style.animationPlayState = "paused"){
 				thiscp.style.animationPlayState="running";
 				$(".stylus").addClass("on");
-				$(".btn_bf img").attr("src","icon/zt.png")
+				$(".btn_bf").addClass("on");
 			};
 			lrc = music.list[thisEq].lrc;
 			if(lrc){
