@@ -475,9 +475,9 @@
 					async:true,
 					success:function(data){
 						var lyric = parseLyric(data);
-//						console.log(lyric,data);
+							//console.log(lyric,data);
 						Object.keys(lyric).forEach(function(key){
-//					    		console.log(key,lyric[key]);
+							//console.log(key,lyric[key]);
 							str += '<li data-id="'+ key +'">'+ lyric[key] +'</li>';
 						});
 						$("#lrc ul").append(str);
