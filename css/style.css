@@ -1,12 +1,26 @@
 html, body {position: relative;height: 100%;color: #fff;}
-.audio{height: 80%;}
-.swiper-container {width: 100%;height: 100%;}
-ul{height: 95%;overflow: scroll;}
-ul li{height:36px!important;line-height: 36px;margin: 0!important;font-size: 14px;border-radius: 4px;box-sizing: border-box;padding: 0 10px;}
-ul li.on{background: url(../img/li.png) no-repeat center/cover;}
-ul li.on i{display: block;float: right;background: url(../img/loading1.gif) center/cover;width: 30px;height: 30px;position: relative;top: 3px;}
-
 body{background: url(../img/bannera.jpg) no-repeat center/cover;box-sizing: border-box;padding: 10px;}
+.swiper-container {width: 100%;height: 100%;}
 .swiper-pagination-bullet{background: #fff;}
 .swiper-pagination-bullet-active{background: #d33638;}
 .box{background: rgba(0,0,0,0.6);-webkit-filter: blur(10px);height: 100%;width: 100%;position: absolute;top: 0;bottom: 0;left: 0;right: 0;}
+
+
+
+.audio{height: 80%;}
+.swiper-slide_list {}
+.swiper-slide_list ul{height: 95%;overflow: scroll;}
+.swiper-slide_list ul li{height:36px!important;line-height: 36px;margin: 0!important;font-size: 14px;border-radius: 4px;box-sizing: border-box;padding: 0 10px;}
+.swiper-slide_list ul li.on{background: url(../img/li.png) no-repeat center/cover;}
+.swiper-slide_list ul li.on i{display: block;float: right;background: url(../img/loading1.gif) center/cover;width: 30px;height: 30px;position: relative;top: 3px;}
+
+.swiper-slide_detail {}
+.swiper-slide_detail .disc{width: 13.75rem;height: 13.75rem;;margin: 60px auto 0;border-radius:100% ;overflow: hidden;background: url(../img/cp2.png) no-repeat center/cover;position: relative;}
+.swiper-slide_detail .disc img{display: block;width: 6.875rem;height: 6.875rem;position: absolute;top: 50%;left: 50%;border-radius: 100%;margin: -25% 0 0 -25%;opacity: .8;}
+.swiper-slide_detail .detail{margin-top: 20px;}
+.swiper-slide_detail .detail p{text-align: center;font-size: 14px;color: #EAE8E9;height: 30px;line-height: 30px;}
+
+.swiper-slide_lrc {}
+.swiper-slide_lrc ul{position: absolute; top: 0px; left: 0px; width: 100%;text-align: center;font-size: 14px;color: #EAE8E9;height: 80%;overflow: hidden;margin: 10% 0 0 0;}
+.swiper-slide_lrc ul li.on{color: #d33638;}
+.swiper-slide_lrc {}
